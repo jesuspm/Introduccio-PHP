@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>taulaHotel</title>
+    <title>ericsanchez_p2</title>
 </head>
-<body>
-    <?php
+<body>  
+    <?php       //Parte INDIVIDUAL
+        $taula =array();                //Aqui declaro un array llamado taula
+        for($i=0; $i < 10; $i++){
+            $taula[$i]= rand(0,5);      //Aqui le voy introduciendo valores, poniendo de identificador la variable $i que esta dando vueltas
+        }                               //y despues con el rand le asigno un numerl aleatoria entre el 0 y el 5
 
-
-        for($i = 0; $i <= 9; $i++){
-            $taula[$i] ='Taula '.$i.' : '.random_int(0,5);
-
-            }
-
-        
-        $longuitud = count($taula);
-    
+        $numero = count($taula);        //Para contar el tamaño que tiene la array
     ?>
+    <ul>
+            <?php
+                for($i = 0; $i <$numero; $i++){
+                    if($taula[$i] >0 && $taula[$i] <5 ){
+                        echo('<li>La taula '.$i.' té '.$taula[$i].' comensals</li>');
 
-    <div>
-        <ul>
-            <li>
-                <?php 
-                    for($i = 0; $i <= $longuitud; $i++){
-                        echo $taula[$i]."<li>";
                     }
-                ?>    
+                    else if($taula[$i] == 0 ){
+                        echo('<li>La taula '.$i.' està buida </li>');
 
-        </ul>
-    </div>
+                    }
+                    else if($taula[$i] == 5 ){
+                        echo('<li>La taula '.$i.' està plena </li>');
+
+                    }     
+                }
+            ?>
+    </ul>
+
 </body>
 </html>
